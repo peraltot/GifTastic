@@ -1,3 +1,4 @@
+$(document).ready(function () {
 
 var topics = [
     'Kitten',
@@ -12,18 +13,20 @@ var topics = [
     'Kittens and Goats'
 ];
 
-for (i = 0; i < topics.length; i++) {
+    createButtons();
 
-    var topicButton = $("<button/>").addClass("btn btn-info animal").attr('data-name', topics[i]).html(topics[i]).css({
-        'margin': '5px'
-    });
-    $("#animalsbuttons").append(topicButton);
-};
+    function createButtons() {
+        for (i = 0; i < topics.length; i++) {
+            var topicButton = $("<button>").addClass("btn btn-info animal").attr('data-name', topics[i]).html(topics[i]).css({
+                'margin': '5px'
+            });
+            $("#animalsbuttons").append(topicButton);
+        }
+    };
 
-$(document).ready(function () {
-
-    $('button').on('click', function () {
+    $("button").on('click', function () {
         var animal = $(this).data('name');
+        console.log(name);
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=10";
 
         $.ajax({
@@ -33,11 +36,11 @@ $(document).ready(function () {
             .done(function (response) {
 
 
-                console.log(response)
+                // console.log(response)
 
                 var results = response.data;
 
-                console.log(response);
+                // console.log(response);
 
                 for (var i = 0; i < results.length; i++) {
 
@@ -82,13 +85,15 @@ $(document).ready(function () {
     });
 
     //This function "adds" the buttons 
-
-    // handles the event when clicked
     $('#theButton').on('click', function () {
+
         var animalButton = $("#gif-input").val();
+        topics.push(animalButton);
+        console.log(topics);
+
         //adds the new animal
 
-        var newButton = $("<button/>").addClass("btn btn-info animal").attr('data-name', animalButton).html(animalButton).css({
+        var newButton = $("<button>").addClass("btn btn-info animal").attr('data-name', animalButton).html(animalButton).css({
             'margin': '5px'
         })
 
@@ -158,3 +163,14 @@ $(document).ready(function () {
     });
 
 });
+//         var newanimal = $("#gif-input").val();
+//         topics.push(newanimal);
+//         // $("#animalbuttons").html();
+//         var topicButton = $("<button>").addClass("btn btn-info animal").attr('data-name', newanimal).html(newanimal).css({
+//             'margin': '5px'
+//         });
+//         $("#animalsbuttons").append(topicButton);
+//         // $("#animalbuttons").empty();
+//         // $("#animalbuttons").html("");
+
+//         // createButtons();      
