@@ -1,3 +1,25 @@
+
+var topics = [
+    'Kitten',
+    'Cat',
+    'Black Cats',
+    'White Cats',
+    'Tabby Cats',
+    'Fluffy Kittens',
+    'Kittens Running',
+    'Cats and Dogs',
+    'Kittens and Dogs',
+    'Kittens and Goats'
+];
+
+for (i = 0; i < topics.length; i++) {
+
+    var topicButton = $("<button/>").addClass("btn btn-info animal").attr('data-name', topics[i]).html(topics[i]).css({
+        'margin': '5px'
+    });
+    $("#animalsbuttons").append(topicButton);
+};
+
 $(document).ready(function () {
 
     $('button').on('click', function () {
@@ -58,9 +80,6 @@ $(document).ready(function () {
                 });
             });
     });
-
-    // var animals = [''];
-
 
     //This function "adds" the buttons 
 
