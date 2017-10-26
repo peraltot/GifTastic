@@ -24,10 +24,14 @@ var topics = [
         }
     };
 
+    $('#Clear Animals').on('click', function () {
+        $('#gifs').empty();
+    });
+
     $("button").on('click', function () {
         var animal = $(this).data('name');
         console.log(name);
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=4";
 
         $.ajax({
                 url: queryURL,
@@ -102,7 +106,7 @@ var topics = [
 
         $("#animalsbuttons").on('click', function () {
 
-            queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalButton + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=10";
+            queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalButton + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=4";
             console.log(animalButton);
 
             $.ajax({
@@ -161,6 +165,8 @@ var topics = [
         $("#gif-input").val("");
         return false;
     });
+    
+
 
 });
 //         var newanimal = $("#gif-input").val();
@@ -171,6 +177,7 @@ var topics = [
 //         });
 //         $("#animalsbuttons").append(topicButton);
 //         // $("#animalbuttons").empty();
+//         // $("#animalbuttons").html("");mpty();
 //         // $("#animalbuttons").html("");
 
 //         // createButtons();      
