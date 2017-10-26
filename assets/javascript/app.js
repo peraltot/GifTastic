@@ -31,14 +31,14 @@ var topics = [
     $("button").on('click', function () {
         var animal = $(this).data('name');
         console.log(name);
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=4";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=10";
 
         $.ajax({
                 url: queryURL,
                 method: 'GET'
             })
             .done(function (response) {
-
+                $('#gifs').empty();
 
                 // console.log(response)
 
@@ -106,7 +106,7 @@ var topics = [
 
         $("#animalsbuttons").on('click', function () {
 
-            queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalButton + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=4";
+            queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalButton + "&api_key=VJTk77P2lpJ75Z4d0Iic06ZFqT54JQaE&limit=10";
             console.log(animalButton);
 
             $.ajax({
@@ -115,6 +115,7 @@ var topics = [
                 })
 
                 .done(function (response) {
+                    $('#gifs').empty();
 
                     var results = response.data;
 
