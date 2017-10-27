@@ -1,17 +1,17 @@
 $(document).ready(function () {
 
-var topics = [
-    'Kitten',
-    'Cat',
-    'Black Cats',
-    'White Cats',
-    'Tabby Cats',
-    'Fluffy Kittens',
-    'Kittens Running',
-    'Cats and Dogs',
-    'Kittens and Dogs',
-    'Kittens and Goats'
-];
+    var topics = [
+        'Kitten',
+        'Cat',
+        'Black Cats',
+        'White Cats',
+        'Tabby Cats',
+        'Fluffy Kittens',
+        'Kittens Running',
+        'Cats and Dogs',
+        'Kittens and Dogs',
+        'Kittens and Goats'
+    ];
 
     createButtons();
 
@@ -90,7 +90,9 @@ var topics = [
 
     //This function "adds" the buttons 
     $('#theButton').on('click', function () {
-
+        if ($("#gif-input").val() === "") {
+            return false;
+        };
         var animalButton = $("#gif-input").val();
         topics.push(animalButton);
         console.log(topics);
@@ -166,19 +168,7 @@ var topics = [
         $("#gif-input").val("");
         return false;
     });
-    
+
 
 
 });
-//         var newanimal = $("#gif-input").val();
-//         topics.push(newanimal);
-//         // $("#animalbuttons").html();
-//         var topicButton = $("<button>").addClass("btn btn-info animal").attr('data-name', newanimal).html(newanimal).css({
-//             'margin': '5px'
-//         });
-//         $("#animalsbuttons").append(topicButton);
-//         // $("#animalbuttons").empty();
-//         // $("#animalbuttons").html("");mpty();
-//         // $("#animalbuttons").html("");
-
-//         // createButtons();      
