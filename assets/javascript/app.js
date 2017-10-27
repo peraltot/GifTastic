@@ -13,6 +13,7 @@ $(document).ready(function () {
         'Kittens and Goats'
     ];
 
+    //creates buttons
     createButtons();
 
     function createButtons() {
@@ -24,9 +25,7 @@ $(document).ready(function () {
         }
     };
 
-    $('#Clear Animals').on('click', function () {
-        $('#gifs').empty();
-    });
+     //main buttons query
 
     $("button").on('click', function () {
         var animal = $(this).data('name');
@@ -40,11 +39,7 @@ $(document).ready(function () {
             .done(function (response) {
                 $('#gifs').empty();
 
-                // console.log(response)
-
                 var results = response.data;
-
-                // console.log(response);
 
                 for (var i = 0; i < results.length; i++) {
 
@@ -73,15 +68,10 @@ $(document).ready(function () {
                     console.log(this);
 
                     if (state === 'still') {
-
                         $(this).attr('src', $(this).data('animate'));
-
                         $(this).attr('data-state', 'animate');
-
                     } else {
-
                         $(this).attr('src', $(this).data('still'));
-
                         $(this).attr('data-state', 'still');
                     }
                 });
@@ -97,8 +87,7 @@ $(document).ready(function () {
         topics.push(animalButton);
         console.log(topics);
 
-        //adds the new animal
-
+        //adds the new buttons
         var newButton = $("<button>").addClass("btn btn-info animal").attr('data-name', animalButton).html(animalButton).css({
             'margin': '5px'
         })
@@ -126,7 +115,6 @@ $(document).ready(function () {
                         var animalDiv = $('<div/>');
                         animalDiv.attr("class", "col-md-3");
 
-
                         var p = $('<h3>');
                         var p = $("<h3>").html("Rating: " + results[i].rating);
 
@@ -150,25 +138,16 @@ $(document).ready(function () {
                         console.log(this);
 
                         if (state === 'still') {
-
                             $(this).attr('src', $(this).data('animate'));
-
                             $(this).attr('data-state', 'animate');
-
                         } else {
-
                             $(this).attr('src', $(this).data('still'));
-
                             $(this).attr('data-state', 'still');
                         }
                     });
                 });
         });
-
         $("#gif-input").val("");
         return false;
     });
-
-
-
 });
